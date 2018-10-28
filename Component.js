@@ -14,7 +14,7 @@ sap.ui.define([
 				type: sap.ui.core.mvc.ViewType.XML
 			},
 			"dependencies": {
-				"libs": ["sap.ui.core", "sap.m", "sap.ui.layout"]
+				"libs": ["sap.ui.core", "sap.m", "sap.ui.layout","sap.ui.commons"]
 			},
 			"config": {
 				"i18nBundle": "SapUi5displaySmartformasPdf.i18n.i18n",
