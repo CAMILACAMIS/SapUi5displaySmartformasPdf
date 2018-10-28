@@ -1,0 +1,44 @@
+{
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.28.40"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.28.40"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "KFD",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "KTC_FIORI"
+    },
+    {
+      "path": "/sap/bc/ui5_ui5",
+      "target": {
+        "type": "destination",
+        "name": "KFD",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "KTC_FIORI"
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

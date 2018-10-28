@@ -1,6 +1,24 @@
 {
   "run": [
     {
+      "filePath": "/Component.js",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "id": 1565098,
+        "runnerId": "fiorirunner",
+        "displayName": "Configuration",
+        "lastRunTimeStamp": 1540728732866
+      }
+    },
+    {
       "filePath": "/webapp/index.html",
       "previewMode": 1,
       "dataMode": 1,
@@ -13,8 +31,8 @@
       "backendSystem": [],
       "urlParametersNotNeeded": false,
       "_metadata": {
-        "runnerId": "webapprunner",
         "id": 1807826,
+        "runnerId": "webapprunner",
         "displayName": "Run index.html",
         "lastRunTimeStamp": 1540728404731
       }
