@@ -1,106 +1,120 @@
 <!DOCTYPE HTML>
 <html>
 
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta charset="UTF-8">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
 
-		<title>SmartformToPdf</title>
+    <title>SmartformToPdf</title>
 
-		<script id="sap-ui-bootstrap"
-			src="../../resources/sap-ui-core.js"
-			data-sap-ui-libs="sap.ui.table,sap.ui.commons"
-			data-sap-ui-theme="sap_bluecrystal"
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"SapUi5displaySmartformasPdf": ""}'>
-		</script>
+    <script id="sap-ui-bootstrap"
+      src="resources/sap-ui-core.js"
+      data-sap-ui-libs="sap.ui.table,sap.ui.commons"
+      data-sap-ui-theme="sap_bluecrystal">
+    </script>
 
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-		<script>
-		
-			var sServiceUrl = "/sap/opu/odata/sap/ZPDF_SERVICE_SRV/";
-			
-				var oConfig = {
-				metadataUrlParams: {},
-				json: true,
-				// loadMetadataAsync : true,
-				defaultBindingMode: "OneWay",
-				defaultCountMode: "None",
-				useBatch: true
-			};
-			
-				// Create and set domain model to the component
-			var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, oConfig);
-			this.setModel(oModel);
-			
-			//create the ApplicationHeader control
-			var oHeader = new sap.ui.commons.ApplicationHeader("headerId"); 
-		
-			//configure the branding area
-			oHeader.setLogoText("Display Smartform as Pdf in SapUi5");
-			
-			//configure the welcome area
-			oAppHeader.setDisplayWelcome(true);
-			oAppHeader.setUserName("Halil Ural");
-			
-			//configure the log off area
-			oAppHeader.setDisplayLogoff(true);
-			
-			oAppHeader.placeAt("content");
-			
-			//Create Contact Details UI
-			var oMatrix = new sap.ui.commons.layout.MatrixLayout({
-				id : 'matrix4',
-				layoutFixed : true,
-				width : '1000px',
-				columns : 5,
-				widths : ['150px', '250px', '200px', '200px', '200px'] });
-			var oCell = new sap.ui.commons.layout.MatrixLayoutCell({
-				colSpan: 5 });
-			var oTV = new sap.ui.commons.TextView({
-				id : 'TV-Head',
-				text : 'Invoice Details for Customer',
-				design : sap.ui.commons.TextViewDesign.H1 });
-			oCell.addContent(oTV);
-			oMatrix.createRow(oCell);
-			var oLabel = new sap.ui.commons.Label({
-				id : 'L-Name',
-				text : 'Customer Number' });
-			var oTF = new sap.ui.commons.TextField({
-				id : 'TF-Name',
-				tooltip : 'Customer Number',
-				width : '200px' });
-			oLabel.setLabelFor(oTF);
-			oMatrix.createRow(oLabel, oTF);
-			//Create a panel and html instances
-			var oPanel = new sap.ui.commons.Panel();
-			var html = new sap.ui.core.HTML();     
-			var oButton = new sap.ui.commons.Button({
-				id : 'B-Create',
-				text : 'Display PDF',
-				width : '10em',
-				press : function(){
-    				var sRead = "/PdfSet(customer='" + oTF.getValue() + "')"	;
-    	
-    				oModel.read( sRead, null, null, true, function(oData, oResponse){
-						var pdfURL = oData.url;
-            			html.setContent("<iframe src=" + pdfURL + " width='700' height='700'></iframe>");
-        				oPanel.addContent(html);
-            			oPanel.placeAt("content");
-        },function(){
-            alert("Read failed");});
-		
-	}
-	});
-		oMatrix.createRow(oButton);
-		//attach it to some element in the page
-		oMatrix.placeAt('content');
-		
-		</script>
-	</head>
+    <script>
 
-	<body class="sapUiBody" id="content">
-	</body>
+      debugger;
+
+      var sServiceUrl = "/sap/opu/odata/sap/ZPDF_SERVICE_SRV/";
+
+        var oConfig = {
+        metadataUrlParams: {},
+        json: true,
+        // loadMetadataAsync : true,
+        defaultBindingMode: "OneWay",
+        defaultCountMode: "None",
+        useBatch: false
+      };
+
+      // Create and set domain model to the component
+      var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, oConfig);
+
+      //create the ApplicationHeader control
+      var oHeader = new sap.ui.commons.ApplicationHeader("headerId");&nbsp;
+
+      //configure the branding area
+      oHeader.setLogoText("Display Smartform as Pdf in SapUi5");
+
+      //configure the welcome area
+      oHeader.setDisplayWelcome(true);
+      oHeader.setUserName("Halil Ural");
+
+      //configure the log off area
+      oHeader.setDisplayLogoff(true);
+
+      oHeader.placeAt("content");
+
+      //Create Contact Details UI
+      var oMatrix = new sap.ui.commons.layout.MatrixLayout({
+        id : 'matrix4',
+        layoutFixed : true,
+        width : '1000px',
+        columns : 5,
+        widths : ['150px', '250px', '200px', '200px', '200px'] });
+      var oCell = new sap.ui.commons.layout.MatrixLayoutCell({
+        colSpan: 5 });
+      var oTV = new sap.ui.commons.TextView({
+        id : 'TV-Head',
+        text : 'Invoice Details for Customer',
+        design : sap.ui.commons.TextViewDesign.H1 });
+      oCell.addContent(oTV);
+      oMatrix.createRow(oCell);
+      var oLabel = new sap.ui.commons.Label({
+        id : 'L-Name',
+        text : 'Customer Number' });
+      var oTF = new sap.ui.commons.TextField({
+        id : 'TF-Name',
+        tooltip : 'Customer Number',
+        width : '200px' });
+      oLabel.setLabelFor(oTF);
+      oMatrix.createRow(oLabel, oTF);
+      //Create a panel and html instances
+      var oPanel = new sap.ui.commons.Panel();
+      var html = new sap.ui.core.HTML();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      var oButton = new sap.ui.commons.Button({
+        id : 'B-Create',
+        text : 'Display PDF',
+        width : '10em',
+        press : function(){
+
+            var sRead = "/PdfSet(customer='" + oTF.getValue() + "')"  ;
+            var oParams = {};
+
+               oParams.success = function(oData, oResponse) {
+                   debugger;
+                   sap.ui.core.BusyIndicator.hide();
+                   var pdfURL = sServiceUrl+sRead+"/NavPdftoDoc/$value";
+                   html.setContent("<iframe src=" + pdfURL + " width='700' height='700'></iframe>");
+                   oPanel.addContent(html);
+                   oPanel.placeAt("content");
+                };
+                oParams.error = function(oError) {
+                  debugger;
+                  sap.ui.core.BusyIndicator.hide();
+                };
+
+                oParams.async = true;
+                sap.ui.core.BusyIndicator.show(0);
+
+                oModel.read(sRead, oParams);
+
+
+          }
+
+          });
+
+    oMatrix.createRow(oButton);
+    //attach it to some element in the page
+    oMatrix.placeAt('content');
+
+    </script>
+  </head>
+
+  <body class="sapUiBody" id="content">
+  </body>
 
 </html>
